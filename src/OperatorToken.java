@@ -2,8 +2,8 @@ import java.util.function.IntBinaryOperator;
 
 public class OperatorToken extends Token{
 
-    char opChar;
-    IntBinaryOperator op;
+    private char opChar;
+    private IntBinaryOperator op;
 
     public OperatorToken(char c){
         opChar = c;
@@ -13,7 +13,7 @@ public class OperatorToken extends Token{
         //Parens don't have a lambda
     }
 
-    public int getCharRepresentation() { return opChar; }
+    public char getCharRepresentation() { return opChar; }
     public int getPrecedence(){
         return BinaryOperator.getPrecedence(opChar);
     }

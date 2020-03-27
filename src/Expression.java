@@ -57,8 +57,13 @@ public class Expression {
                         throw new IllegalArgumentException("No matching open parentheses found.");
                     operators.pop();
                 } else {
-                    while(!operators.isEmpty() && operators.peek().getPrecedence() >= opTok.getPrecedence())
+                    int precedence = opTok.getPrecedence();
+                    char opChar = opTok.getCharRepresentation();
+                    while(!operators.isEmpty() &&
+                            reduceForAssociativity(operators.peek().getPrecedence(), precedence, opChar)) {
+
                         reduce(operators, operands);
+                    }
                     operators.push(opTok);
                 }
             } else {
@@ -74,6 +79,14 @@ public class Expression {
 
         //System.out.println(operands.peek().toString());
         return operands.pop();
+    }
+
+    private boolean reduceForAssociativity(int stackPrecedence, int opPrecedence, char operator){
+        if(operator == '^'){
+            return stackPrecedence > opPrecedence;
+        } else {
+            return stackPrecedence >= opPrecedence;
+        }
     }
 
     private void reduce(Deque<OperatorToken> operators, Deque<Token> operands) {

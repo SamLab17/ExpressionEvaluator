@@ -6,6 +6,7 @@ public class Tester {
 
     public static void main(String[] args){
         displayTest("3 - 7 * ( 4 + ( 25 / (3 + 2)) - 2)", -46);
+        displayTest("2 ^ 2 ^ 3", 256);
 
         System.out.println("Running unit tests.");
         Result testResults = JUnitCore.runClasses(UnitTests.class);
@@ -28,5 +29,6 @@ public class Tester {
         System.out.println("Postfix : " + e.toPostfix());
         System.out.println("Prefix  : " + e.toPrefix());
         System.out.println("Lisp    : " + e.toLisp());
+        System.out.println();
     }
 }
