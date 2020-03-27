@@ -33,7 +33,7 @@ public class UnitTests {
         assertEquals(6, new Expression("2 + 2 + 2").evaluate());
         assertEquals(-1, new Expression("2 + 2 - 5").evaluate());
         assertEquals(10, new Expression("5 - 1 + 6").evaluate());
-        assertEquals(-8, new Expression("2 - 16 / 2 / 4 - 8"));
+        assertEquals(-8, new Expression("2 - 16 / 2 / 4 - 8").evaluate());
     }
 
 
