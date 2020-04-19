@@ -1,6 +1,11 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
+/**
+ * JUnit unit tests for Expression Evaluator
+ *
+ * @author Samuel Laberge
+ */
 public class UnitTests {
 
     @Test
